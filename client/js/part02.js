@@ -27,10 +27,94 @@ const data = [
 
 
 
+/* ========= (+)jQuery의 사용이 적어진 이유 ========== */
+// 1. 자바스크립트의 버전 ⬆️ 문법 쉬움
+// 2. 느림. 엔진 무거움
+// 3. single Page Application 웹사이트구현 (react,vue,svelt)
 
 
 
 
+
+
+//모든 li를 수집하고 => 배열 => forEach ... removeClass
+
+// $('.navigation').on('click','li', function(e){
+//   e.preventDefault();
+
+
+//   const index = $(this).attr('data-index');
+//   console.log(index);
+
+//   // $('visual img').attr('src',`./assets/part01/${data[index-1].src}`);
+//   // $('visual img').attr('alt',data[index-1].alt);
+
+//   $('visual img').attr({
+//     'src': `./assets/part01/${data[index-1].src}`,
+//     'alt': data[index-1].alt
+//   })
+
+//   $('.navigation > li').removeClass('is-active');
+
+//   $(this).addClass('is-active');
+
+// })
+
+
+//jQuery
+
+$('.navigation > li').on('click',function(e){
+
+  e.preventDefault();
+
+  const index = $(this).index();
+
+  $('.navigation > li').removeClass('is-active');
+  $(this).addClass('is-active');
+
+
+  $('.visual img').attr({
+    'src':`./assets/part01/${data[index].src}`,
+    'alt':data[index].alt
+  })
+})
+
+
+
+
+
+// const list = document.querySelectorAll('.navigation > li');
+
+
+
+// list.forEach((li,index)=>{
+//   li.addEventListener('click',()=>{
+//     console.log( index );
+//   })
+
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const $ = {
+//   on(type,delegation,callback){
+//     target.closest(delegation)
+//     if( ... ) return
+//   }
+// }
 
 
 
